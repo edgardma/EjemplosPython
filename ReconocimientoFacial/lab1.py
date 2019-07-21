@@ -3,6 +3,8 @@ import cv2
 import time
 
 video_capture = cv2.VideoCapture(0)
+video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 while True:
     start_time = time.time()
