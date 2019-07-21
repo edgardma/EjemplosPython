@@ -1,18 +1,26 @@
 import face_recognition
 import cv2
+import time
 
 video_capture = cv2.VideoCapture(0)
 
 while True:
+    start_time = time.time()
     ret, frame = video_capture.read()
-    rgb_frame = frame[:, :, ::-1]
+    fast_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
+    rgb_frame = fast_frame[:, :, ::-1]
 
     face_locations = face_recognition.face_locations(rgb_frame)
-    face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)
 
-    for (top, right, bottom , left), face_encoding in zip(face_locations, face_encodings):
+    for top, right, bottom, left in face_locations:
+        top *= 4
+        right *= 4
+        bottom *= 4
+        left *= 4
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
     cv2.imshow('Video', frame)
+
+    print("FPS: ", 1.0 / (time.time() - start_time))
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
