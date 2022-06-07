@@ -15,7 +15,13 @@ link_enter = Entry(root, width=50, textvariable=link).place(x=32, y=90)
 
 def downloader():
     url = YouTube(str(link.get()))
-    video = url.streams.first()
+    ## Esto es para poder listar todas las resoluciones del video
+    resul = url.streams.all()
+    for i in resul:
+        print(i)
+
+    ## Se realiza la descarga, el número corresponde a la posición en la lista de resoluciones
+    video = url.streams[2]
     video.download()
     Label(root, text='DESCARGADO', font='arial 15 bold', bg="#f2eee3", fg="red").place(x=185, y=210)
 
