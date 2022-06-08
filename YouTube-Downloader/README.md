@@ -1,5 +1,7 @@
 ## Ejemplo para bajar un video de YouTube
 
+*Probado en Windows y Linux*
+
 Para poder ejecutar correctamente el ejemplo, se recomienda `python3` e instalar las siguientes librerías:
 
 ```python
@@ -22,8 +24,6 @@ video = url.streams.get_highest_resolution()
 # Bajar el video según la lista disponible
 video = url.streams[1]
 ```
-
-
 
 Este código lo he obtenido de las siguientes rutas:
 
@@ -48,7 +48,11 @@ var_regex = re.compile(r"^\w+\W")
 var_regex = re.compile(r"^\$*\w+\W")
 ```
 
-Se puede realizar el cambio en el archivo que se encuentra en la ruta del proyecto`[RUTA_RAIZ]/YouTube-Downloader/venv/lib/python3.8/site-packages/pytube`
+Se puede realizar el cambio en el archivo que se encuentra en la ruta del proyecto:
+
+* Linux: `[RUTA_RAIZ]/YouTube-Downloader/venv/lib/python3.8/site-packages/pytube`
+
+* Windows: `[RUTA_RAIZ]\YouTube-Downloader\venv\Lib\site-packages\pytube`
 
 *Fuente:*
 
