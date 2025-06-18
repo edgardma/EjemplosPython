@@ -38,14 +38,14 @@ Para probar, se puede usar la herramienta `Postman` con el siguiente:
 
 ```json
 {
-    tipo: 'POST',
-    url: 'http://127.0.0.1:5000/predict',
-    parametros: {
-        tipo: 'form-data',
-        param: {
-            key: 'image',
-            tipo: 'file'
-            value: 'una imagen'
+    "tipo":"POST",
+    "url":"http://127.0.0.1:5000/predict",
+    "parametros": {
+        "tipo":"form-data2",
+        "param": {
+            "key":"image",
+            "tipo":"file",
+            "value":"un archivo de una imagen de un perro"
         }
     }
 } 
