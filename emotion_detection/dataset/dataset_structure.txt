@@ -1,0 +1,11 @@
+
+dataset/
+  ├── happy/
+  │   ├── dog1.jpg
+  │   └── cat1.jpg
+  ├── sad/
+  │   ├── dog2.jpg
+  │   └── cat2.jpg
+  └── angry/
+      ├── dog3.jpg
+      └── cat3.jpg
