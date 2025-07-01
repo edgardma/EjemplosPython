@@ -13,22 +13,23 @@
 Ejecutar las siguientes sentencias:
 
 ```bash
-pip install flask tensorflow numpy pillow
+pip install flask tensorflow numpy pillow flask-cors
 ```
 
 ## Ejecución
 
-Ejecutar el modelo:
+Para entrenar el modelo se debe ejecutar la siguiente sentencia:
 
 ```bash
 ## Ejecutarlo en la raiz
 python train_model.py
 ```
 
-Ejecuar el servicio web para probar el modelo:
+Luego de entrenar el modelo, se puede ejecuar el servicio web para probar el modelo entrenado:
 
 ```bash
 ## Ejecutarlo en la carpeta 'app'
+cd app/
 python app.py
 ```
 

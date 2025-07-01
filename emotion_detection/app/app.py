@@ -1,5 +1,6 @@
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
@@ -9,14 +10,21 @@ from PIL import Image
 app = Flask(__name__)
 model = load_model('model/emotion_model.h5')  # Cargar el modelo entrenado
 
+@app.route('/')
+def home():
+    return render_template('index.html')  
+
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Obtener el archivo de imagen cargado
-    img_file = request.files['image']
-    
+    # Obtener el primer archivo cargado sin importar el nombre del campo
+    if not request.files:
+        return jsonify({'error': 'No file uploaded'}), 400
+
+    img_file = next(iter(request.files.values()))
+
     # Convertir el archivo cargado a una imagen con PIL (Pillow)
     img = Image.open(img_file.stream)
-    
+
     # Redimensionar la imagen a (224, 224) como espera el modelo
     img = img.resize((224, 224))
 
